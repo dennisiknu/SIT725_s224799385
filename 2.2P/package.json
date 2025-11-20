@@ -1,0 +1,15 @@
+{
+  "name": "SIT725-Workshop-2",
+  "version": "1.0.0",
+  "description": "SIT725-Workshop-2",
+  "license": "ISC",
+  "author": "Dennis-Wang",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
