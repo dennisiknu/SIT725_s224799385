@@ -1,0 +1,30 @@
+.navbar-size {
+    width: 95%;
+    margin: 0 auto;
+}
+
+.main-body {
+    background-color: #f57c00;
+    color: white;
+    min-height: calc(100vh - 64px);
+    padding-bottom: 40px;
+}
+
+.materialboxed-image {
+    margin: 20px auto;
+    max-height: 350px;
+}
+
+.card .card-image img {
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-reveal .card-title,
+.card-reveal p {
+    color: black !important;
+}
+
+#facts-list li {
+    color: black !important;
+}
