@@ -35,14 +35,59 @@
 
                 <div class="row" id="card-section"></div>
 
+                <div class="row center-align" style="margin-top: 30px;">
+                    <a href="#player-modal" class="btn modal-trigger">
+                        Add Favourite Player
+                    </a>
+                </div>
+
                 <div class="row" id="facts-section">
                     <div class="col s12">
                         <h4>Basketball Facts</h4>
                         <ul id="facts-list" class="collection"></ul>
                     </div>
                 </div>
+
+                <div class="row" id="players-section">
+                    <div class="col s12">
+                        <h4>User Submissions</h4>
+                        <ul id="players-list" class="collection"></ul>
+                    </div>
+                </div>
             </div>
     </main>
+
+    <div id="player-modal" class="modal">
+        <div class="modal-content">
+            <h4>Submit Your Favourite Player</h4>
+
+            <form id="player-form" class="col s12">
+
+                <div class="input-field">
+                    <input id="user-name" type="text" required>
+                    <label for="user-name">Your Name</label>
+                </div>
+
+                <div class="input-field">
+                    <input id="user-email" type="email" required>
+                    <label for="user-email">Your Email</label>
+                </div>
+
+                <div class="input-field">
+                    <input id="player-name" type="text" required>
+                    <label for="player-name">Favourite Player</label>
+                </div>
+
+            </form>
+        </div>
+
+        <div class="modal-footer">
+            <a href="#!" id="save-player" class="modal-close waves-effect waves-green btn">
+                Submit
+            </a>
+        </div>
+    </div>
+
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

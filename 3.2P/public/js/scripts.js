@@ -63,9 +63,32 @@ const loadFacts = () => {
         });
 };
 
+function setupPlayerSubmit() {
+    $("#save-player").click(function () {
 
+        const name = $("#user-name").val().trim();
+        const email = $("#user-email").val().trim();
+        const player = $("#player-name").val().trim();
+
+        if (!name || !email || !player) return;
+
+        $("#players-list").append(`
+            <li class="collection-item">
+                <strong>${name}</strong> — Favourite Player:
+                <strong>${player}</strong>
+            </li>
+        `);
+
+        $("#player-form")[0].reset();
+    });
+}
+
+// Run once DOM is ready
 $(document).ready(function () {
+    // IMPORTANT: initialise Materialize modal
+    $('.modal').modal();
+
     addCards(cardList);
     loadFacts();
-
+    setupPlayerSubmit();
 });
