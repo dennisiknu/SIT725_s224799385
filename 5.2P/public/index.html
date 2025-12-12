@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Get all books</title>
+</head>
+
+<body>
+    <h1>Books Catalogue</h1>
+    <p>Click the button below to get all books from the server:</p>
+    <button id="fetchBooksBtn">Get Books</button>
+    <div id="booksDisplay"></div>
+
+    <script>
+        const btn = document.getElementById('fetchBooksBtn');
+        const out = document.getElementById('booksDisplay');
+
+        function render(items) {
+            out.innerHTML = '';
+
+            if (!Array.isArray(items) || items.length === 0) {
+                out.textContent = 'No books';
+                return;
+            }
+
+            for (const book of items) {
+                const div = document.createElement('div');
+                div.style.border = '1px solid #ccc';
+                div.style.padding = '8px';
+                div.style.marginBottom = '8px';
+
+                const html = `
+          <p><strong>ID:</strong> ${book.id}</p>
+          <p><strong>Title:</strong> ${book.title}</p>
+          <p><strong>Author:</strong> ${book.author}</p>
+          <p><strong>Year:</strong> ${book.year}</p>
+          <p><strong>Genre:</strong> ${book.genre}</p>
+          <p><strong>Summary:</strong> ${book.summary}</p>
+        `;
+
+                div.innerHTML = html;
+                out.appendChild(div);
+            }
+        }
+
+        btn.addEventListener('click', async () => {
+            out.textContent = 'Loading...';
+            try {
+                const res = await fetch('/api/books');
+
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+                const body = await res.json();
+                render(body.data);
+            } catch (err) {
+                console.error('Error fetching books:', err);
+                out.textContent = 'Error fetching books.';
+            }
+        });
+    </script>
+</body>
+
+</html>
